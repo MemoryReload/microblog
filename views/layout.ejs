@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %> - micorblog</title>
+    <link rel='stylesheet' href='/stylesheets/bootstrap.css' />
+    <link rel="stylesheet" href="/stylesheets/bootstrap-responsive.css">
+    <style type="text/css">
+    body{
+      padding-top: 60px;
+      padding-bottom: 40px;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle='collapse' data-target='.nav-collapse'>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a href="/" class="brand">Microblog</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li class="active"><a href='/'>首页</a></li>
+              <% if(!user) { %>
+              <li><a href="/login">登录</a></li>
+              <li><a href="/regist">注册</a></li>
+              <% } else { %>
+              <li><a href="/logout">登出</a></li>
+              <% } %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="container" class="container">
+
+    <% if(success.length) { %>
+      <div class="alert alert-success">
+        <%= success %>
+      </div>
+    <% } %>
+    <% if(error.length) { %>
+      <div class="alert alert-error">
+        <%= error %>
+      </div>
+    <% } %>
+
+    <%- body %>
+    <hr/>
+    <footer>
+      <p><a href="http://www.byvoid.com/" target="_blank">BYVoid</a>2016</p>
+    </footer>
+    </div>
+  </body>
+  <script src="/javascripts/jquery-3.1.1.js"></script>
+  <script src="/javascripts/bootstrap.js"></script>
+</html>
